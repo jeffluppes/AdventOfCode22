@@ -30,11 +30,9 @@ def calculate_part_one(job_assignments_pairs) -> int:
 def calculate_part_two(job_assignments_pairs) -> int:
     score=0
     for A, B in job_assignments_pairs:
-        if len(A.union(B)) == len(A)+len(B):
+        if len(A.union(B)) is not len(A)+len(B):
             score+=1
 
-    # we end up with how many jobs dont overlap at all, so substract these from the total to get the actual answer
-    score = len(job_assignments_pairs)-score
     return score
 
 if __name__ == '__main__':
